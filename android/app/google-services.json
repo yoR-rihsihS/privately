@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "659545774906-nq9jmfist19ucis21mkr57lhpk54nit7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shishirroy.privately",
+            "certificate_hash": "8e6b2ef6d7c4655feaedfeace09a970a7534e179"
+          }
+        },
+        {
           "client_id": "659545774906-328i3t6bjtth1sao3gaqrs1md31kpq4k.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

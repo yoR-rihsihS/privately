@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:privately/authentication.dart';
+import 'package:privately/mapping.dart';
 
 void main() {
   runApp(Privately());
@@ -6,12 +8,12 @@ void main() {
 
 class Privately extends StatelessWidget
 {
+  final Auth auth = Auth();
+
   Widget build(BuildContext context)
   {
     return MaterialApp(
-      home: Container(
-        color: Colors.white,
-      ),
+      home: Mapping(auth: auth,),
     );
   }
 }
