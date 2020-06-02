@@ -12,11 +12,8 @@ class LoginSignupPage extends StatefulWidget {
 }
 
 class _LoginSignupPageState extends State<LoginSignupPage> {
-  double height;
 
-  @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
 
     return Container(
       color: Colors.blueAccent,

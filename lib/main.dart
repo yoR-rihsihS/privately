@@ -6,14 +6,14 @@ void main() {
   runApp(Privately());
 }
 
-class Privately extends StatelessWidget
-{
-  final Auth auth = Auth();
+class Privately extends StatelessWidget {
+  final AuthImplementation auth = Auth();
 
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return MaterialApp(
-      home: Mapping(auth: auth,),
+      home: Mapping(
+        auth: auth,
+      ),
     );
   }
 }

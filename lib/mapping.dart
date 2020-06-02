@@ -11,45 +11,40 @@ class Mapping extends StatefulWidget {
   _MappingState createState() => _MappingState();
 }
 
-enum AuthStatus
-{
+enum AuthStatus {
   signedIn,
   notSignedIn,
 }
 
-
 class _MappingState extends State<Mapping> {
-
   AuthStatus _authStatus = AuthStatus.notSignedIn;
 
-  void initState() { 
+  void initState() {
     super.initState();
-    
-    widget.auth.getCurrentUser().then((firebaseUserId)
-    {
+
+    widget.auth.getCurrentUser().then((firebaseUserId) {
       setState(() {
-        firebaseUserId == null ? _authStatus = AuthStatus.notSignedIn : _authStatus = AuthStatus.signedIn;
+        firebaseUserId == null
+            ? _authStatus = AuthStatus.notSignedIn
+            : _authStatus = AuthStatus.signedIn;
       });
     });
   }
 
-  void _signedIn()
-  {
+  void _signedIn() {
     setState(() {
       _authStatus = AuthStatus.signedIn;
     });
   }
 
-  void _signedOut()
-  {
+  void _signedOut() {
     setState(() {
       _authStatus = AuthStatus.notSignedIn;
     });
   }
-  
+
   Widget build(BuildContext context) {
-    switch (_authStatus)
-    {
+    switch (_authStatus) {
       case AuthStatus.notSignedIn:
         return LoginSignupPage(
           auth: widget.auth,
