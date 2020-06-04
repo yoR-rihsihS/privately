@@ -2,31 +2,26 @@ import 'package:flutter/material.dart';
 
 class ChatHead extends StatefulWidget {
   final String name;
-  final int index;
+  final Color color;
   final AnimationController animationController;
   final double maxWidth;
   final double minWidth;
+  final VoidCallback onTap;
 
-  ChatHead(
-      {this.name,
-      this.index,
-      this.animationController,
-      this.minWidth,
-      this.maxWidth});
+  ChatHead({
+    this.name,
+    this.color,
+    this.animationController,
+    this.minWidth,
+    this.maxWidth,
+    this.onTap,
+  });
 
   _ChatHeadState createState() => _ChatHeadState();
 }
 
 class _ChatHeadState extends State<ChatHead> {
   Animation<double> widthAnimation, sizedBoxAnimation;
-
-  List<Color> colorlist = [
-    Colors.teal,
-    Colors.cyan,
-    Colors.indigo,
-    Colors.purple,
-    Colors.red
-  ];
 
   void initState() {
     super.initState();
@@ -42,27 +37,32 @@ class _ChatHeadState extends State<ChatHead> {
         bottom: 8.0,
         left: 8.0,
       ),
-      child: Row(
-        children: <Widget>[
-          CircleAvatar(
-            radius: 22.0,
-            backgroundColor: colorlist[widget.index % 5],
-          ),
-          SizedBox(
-            width: 6.0,
-          ),
-          widthAnimation.value >= 80
-              ? Expanded(
-                  child: Text(
-                    widget.name,
-                    overflow: TextOverflow.ellipsis,
+      child: InkWell(
+        onTap: widget.onTap,
+        child: Row(
+          children: <Widget>[
+            CircleAvatar(
+              radius: 22.0,
+              backgroundColor: widget.color,
+            ),
+            SizedBox(
+              width: 6.0,
+            ),
+            widthAnimation.value >= 80
+                ? Expanded(
+                    child: Text(
+                      widget.name,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  )
+                : SizedBox(
+                    width: 0.0,
                   ),
-                )
-              : SizedBox(width: 0.0,),
-          SizedBox(
-            width: sizedBoxAnimation.value,
-          ),
-        ],
+            SizedBox(
+              width: sizedBoxAnimation.value,
+            ),
+          ],
+        ),
       ),
     );
   }

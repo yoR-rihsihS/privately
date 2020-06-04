@@ -1,7 +1,13 @@
-class ChatHeadModel
-{
-  String name;
-  int index;
+import 'package:flutter/material.dart';
 
-  ChatHeadModel({this.name, this.index});
+class ChatHeadModel {
+  String name;
+  String chatId;
+  int icon;
+
+  ChatHeadModel({
+    this.name,
+    this.icon,
+    this.chatId,
+  });
 }
